@@ -150,17 +150,82 @@ This module also includes a potentiometer that will fix the threshold value, & t
 
 
 ##  Program 
+```
+NAME:RASIKA.M
+REFERENCE NUMBER:212222230117
+```
+
+```
+#include "main.h"
+#include"stdio.h"
+uint32_t adcvalue;
+#if defined (_ICCARM) || defined (_ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#elif defined(_GNUC_)
+   
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#endif  
+
+while(1)
+{
+
+	HAL_ADC_Start(&hadc1);
+			HAL_ADC_PollForConversion(&hadc1,100);
+			adcvalue = HAL_ADC_GetValue(&hadc1);
+			HAL_ADC_Stop(&hadc1);
+			HAL_Delay(500);
+			printf("ADC VALUE:%ld\n",adcvalue);
+
+}
+
+PUTCHAR_PROTOTYPE
+{
+
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+
+  return ch;
+}
+```
 
 
- 
 
-## Result :
  
 ## Output  :
 
+## Board Settings and its connections:
+
+![B](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/9cc84756-41b2-4212-a604-6e2af79fd83c)
+
+
+![2](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/ec36f6af-704e-4b44-8304-bc828e6730a6)
+
+
+![3](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/19bdf6f4-3521-4c0b-b44c-5e2faeec97f5)
 
 
 
+## Normal ADC Value:
 
+
+![N](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/02ccd21a-2b15-4ba8-b0d1-fec92c9fee90)
+
+## After Light Dipping of soil-moisture-sensor-device in water:
+
+
+![A](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/52f52bb0-6257-4892-b673-920cfb54b3a0)
+
+
+![A2](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/16618d37-f576-41ed-b674-cf46f341c7f3)
+
+
+## After Deep Dipping of soil-moisture-sensor-device in water:
+
+![D](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/fcf1158b-5e9e-4304-854f-b29b25c7ec1c)
+
+
+![D2](https://github.com/rasika1206/Ex.-No.8-CONFIGURING-ANALOG-PORT-TO-INTEFACE-AN-ANALOG-SENSOR-AND-READ-THE-VALUES-USING-SERIAL-PORT/assets/124434806/e2645c1e-a5fa-4389-8312-93fce6b2344c)
+
+### RESULT:
+Hence,the configuring analog port to inteface an analog sensor and read the values using serial port runned successfully.
 
 ****
